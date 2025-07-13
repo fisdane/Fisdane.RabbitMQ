@@ -60,6 +60,3 @@ This project is licensed under the [MIT License](LICENSE). -->
 ## 💬 Support
 
 If you find this project helpful, consider giving it a ⭐ on GitHub or sharing it with others.
-
-## Status
- _in_progress_
