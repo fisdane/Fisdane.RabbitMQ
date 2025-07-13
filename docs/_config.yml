@@ -5,6 +5,6 @@
 # the repo. Unless a later match takes precedence
 # @hopeswiller and @fymagogo will be requested for 
 # review when someone opens a pull request
-*       @hopeswiller @fymagogo
+# *      @hopeswiller @fymagogo
 
 theme: jekyll-theme-minimal
