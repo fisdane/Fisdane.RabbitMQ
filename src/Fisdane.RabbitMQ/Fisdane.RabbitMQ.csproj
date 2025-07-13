@@ -10,6 +10,8 @@
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <Company>Fisdane</Company>
     <Authors>Fisdane, David Boateng Adams, Fidel Agogo</Authors>
+    <RepositoryUrl>https://github.com/fisdane/Fisdane.RabbitMQ</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>
