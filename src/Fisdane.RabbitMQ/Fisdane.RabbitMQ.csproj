@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Title>Fisdane.RabbitMQ</Title>
+    <Description>Wrapper around MassTransit.RabbitMQ making it easier to setup with your background services without complexity</Description>
+    <PackageTags>RabbitMQ, Messaging, PubSub, Consumers</PackageTags>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <Company>Fisdane</Company>
+    <Authors>Fisdane, David Boateng Adams, Fidel Agogo</Authors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MassTransit.RabbitMQ" Version="8.4.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="8.0.2" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="../../NuGet.README.md">
+      <Pack>true</Pack>
+      <PackagePath>\</PackagePath>
+    </Content>
+  </ItemGroup>
+
+</Project>
