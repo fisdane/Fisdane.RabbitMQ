@@ -8,7 +8,7 @@ Wrapper around MassTransit.RabbitMQ making it easier to setup with your backgrou
 
 ## Documentation
 
-Get started by [reading through the documentation](https://abc.com/).
+Get started by [reading through the documentation](https://fisdane.github.io/Fisdane.RabbitMQ/).
 
 
 ## Getting started

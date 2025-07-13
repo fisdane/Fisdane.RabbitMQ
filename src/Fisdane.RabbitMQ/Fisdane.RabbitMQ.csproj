@@ -12,6 +12,8 @@
     <Authors>Fisdane, David Boateng Adams, Fidel Agogo</Authors>
     <RepositoryUrl>https://github.com/fisdane/Fisdane.RabbitMQ</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://fisdane.github.io/Fisdane.RabbitMQ/</PackageProjectUrl>
+    <PackageReadmeFile>NuGet.README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,10 +24,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="../../NuGet.README.md">
-      <Pack>true</Pack>
+    <None Include="..\..\NuGet.README.md">
+      <Pack>True</Pack>
       <PackagePath>\</PackagePath>
-    </Content>
+    </None>
   </ItemGroup>
 
 </Project>
