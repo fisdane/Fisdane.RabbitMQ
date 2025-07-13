@@ -1,29 +1,45 @@
+
 # Fisdane.RabbitMQ
 
-Wrapper around MassTransit.RabbitMQ making it easier to setup with your background services without complexity
 
-- First class testing support
-- Write once, then deploy using RabbitMQ
-- Fully-supported, widely-adopted, a complete end-to-end solution
+**Fisdane.RabbitMQ** is a lightweight wrapper around `MassTransit.RabbitMQ`, designed to simplify integration with background services—removing boilerplate and reducing setup complexity.
 
-## Documentation
+---
 
-Get started by [reading through the documentation](https://fisdane.github.io/Fisdane.RabbitMQ/).
+## ✨ Features
 
+- First-class testing support
+- Easily integrate RabbitMQ into .NET background services
+- Write once, deploy anywhere
+- Fully supported and production-ready
+- Clean abstraction with minimal overhead
 
-## Getting started
-Fisdane.RabbitMQ is installed from NuGet.
+---
 
+## 📚 Documentation
 
-```
+Get started by [reading the full documentation](https://fisdane.github.io/Fisdane.RabbitMQ/).
+
+---
+
+## 📦 Installation
+
+Install via NuGet:
+
+```bash
 dotnet add package Fisdane.RabbitMQ
 ```
 
-The simplest way to set up is using the **RegisterConsumers** extension method to setup background workers and connect to rabbitmq or, using **RegisterPublisher** method to connect a service to the broker as a producer of events or messages  
+---
 
-Sample Program.cs:
 
-```
+## 🚀 Getting Started
+
+The easiest way to use **Fisdane.RabbitMQ** is via the `RegisterConsumers` extension method to set up background workers that consume from RabbitMQ, or `RegisterPublisher` to configure services as producers of events or messages.
+
+##### Sample `Program.cs`
+
+```csharp
 using Fisdane.RabbitMQ;
 using Fisdane.RabbitMQ.Options;
 using Test.Worker;
@@ -45,18 +61,22 @@ builder.Services
     .Configure<RabbitMQOption>(builder.Configuration.GetSection("RabbitMQ"))
     .ValidateRabbitMQOptions();
 
-// GetConsumerMappings method passed as a parameter here
-// GetConsumerMappings should be created by YOU!
+// Replace 'GetConsumerMappings' with your own consumer mapping method
 builder.Services.RegisterConsumers(builder.Configuration, Utils.GetConsumerMappings);
 
 var host = builder.Build();
 host.Run();
 ```
 
-Your service **must** set rabbitmq configruation values as follows
 
-Sample appsettings.json:
-```
+
+### ⚙️ Configuration
+
+Your service **must** provide RabbitMQ configuration via `appsettings.json`.
+
+##### Sample `appsettings.json`
+
+```json
 {
   ...
   "RabbitMQ": {
@@ -79,17 +99,26 @@ Sample appsettings.json:
       "Microsoft.Hosting.Lifetime": "Information"
     }
   }
-  ...
 }
 ```
-EndpointNameFormatter have three possible values _[KhebabCase, SnakeCase & CamelCase]_ deciding how you want your queue/endpoint names to look like
+The `EndpointNameFormatter` can take one of the following values:
 
-In the program.cs file, GetConsumerMappings is called to fetch this data. Very important piece of this library
-Your project should have a method that contains all the consumers available with their respect consumer definitions. Find sample files below
+- `KebabCase`
+- `SnakeCase`
+- `CamelCase`
 
-Sample util.cs
-##### _Dictionary keys should match the names of consumers set as EnabledConsumers in the appsettings.json_
-```
+This controls the format of queue and endpoint names.
+
+---
+
+
+### 🧠 Consumer Mapping
+
+The method `GetConsumerMappings` is essential—it maps enabled consumer names (from config) to their respective consumer and definition types. Method name can be anything you see fit but must return a `Dictionary<string, (Type, Type)>`
+
+##### Sample `Utils.cs`
+
+```csharp
 internal static class Utils
 {
     public static Dictionary<string, (Type, Type)> GetConsumerMappings()
@@ -98,20 +127,25 @@ internal static class Utils
         {
             ["SubmitOrder"] = (typeof(SubmitOrderConsumer), typeof(SubmitOrderConsumerDefinition)),
             ["ShipmentCreated"] = (typeof(ShipmentCreatedConsumer), typeof(ShipmentCreatedConsumerDefinition))
-            ...
         };
     }
 }
 ```
 
-Sample ShipmentCreatedConsumer.cs
-```
+> 🔑 **Note:** Keys in this dictionary **must** match the names listed under `EnabledConsumers` in `appsettings.json`.
+
+
+
+### 📨 Sample Consumer Implementation
+
+##### `ShipmentCreatedConsumer.cs`
+
+```csharp
 internal class ShipmentCreatedConsumer : IConsumer<ShipmentCreatedEvent>
 {
     public async Task Consume(ConsumeContext<ShipmentCreatedEvent> context)
     {
         var shipment = context.Message;
-        // Process shipment creation logic
         Console.WriteLine($"Processing shipment: {shipment.ShipmentId} for order: {shipment.OrderId}");
         await Task.CompletedTask;
     }
@@ -121,11 +155,7 @@ internal class ShipmentCreatedConsumerDefinition : ConsumerDefinition<ShipmentCr
 {
     public ShipmentCreatedConsumerDefinition()
     {
-        // override the default endpoint name
         EndpointName = "ShipmentCreated";
-
-        // limit the number of messages consumed concurrently
-        // this applies to the consumer only, not the endpoint
         ConcurrentMessageLimit = 2;
     }
 
@@ -138,7 +168,34 @@ internal class ShipmentCreatedConsumerDefinition : ConsumerDefinition<ShipmentCr
 }
 ```
 
+---
 
-## Getting help
 
-## Contributing
+## ✅ Build Status
+
+| Branch | Status |
+|--------|--------|
+| `master` | [![Fisdane.RabbitMQ](https://github.com/fisdane/Fisdane.RabbitMQ/actions/workflows/build.yml/badge.svg)](https://github.com/fisdane/Fisdane.RabbitMQ/actions/workflows/build.yml) |
+
+---
+
+## 🙋 Getting Help
+
+For questions, bug reports, or feature requests, feel free to [open an issue](https://github.com/fisdane/Fisdane.RabbitMQ/issues).
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! Please see the [contributing guidelines](CONTRIBUTING.md) for more details.
+
+---
+
+<!-- ## 📄 License
+
+This project is licensed under the [MIT License](LICENSE). -->
+<!-- --- -->
+
+## 💬 Support
+
+If you find this project helpful, consider giving it a ⭐ on GitHub or sharing it with others.

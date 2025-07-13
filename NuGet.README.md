@@ -1,33 +1,65 @@
 # Fisdane.RabbitMQ
 
-Wrapper around MassTransit.RabbitMQ making it easier to setup with your background services without complexity
+**Fisdane.RabbitMQ** is a lightweight wrapper around `MassTransit.RabbitMQ`, designed to simplify integration with background services—removing boilerplate and reducing setup complexity.
 
-- First class testing support
-- Write once, then deploy using RabbitMQ
-- Fully-supported, widely-adopted, a complete end-to-end solution
+---
 
-## Documentation
+## ✨ Features
 
-Get started by [reading through the documentation](https://fisdane.github.io/Fisdane.RabbitMQ/).
+- First-class testing support
+- Easily integrate RabbitMQ into .NET background services
+- Write once, deploy anywhere
+- Fully supported and production-ready
+- Clean abstraction with minimal overhead
 
-Build Status
-------------
+---
 
-| Branch        |                                                                                                Status                                                                                                |
-|---------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| master        |    [![Fisdane.RabbitMQ](https://github.com/fisdane/Fisdane.RabbitMQ/actions/workflows/build.yml/badge.svg)](https://github.com/fisdane/Fisdane.RabbitMQ/actions/workflows/build.yml)				   |
+## 📚 Documentation
+
+Get started by [reading the full documentation](https://fisdane.github.io/Fisdane.RabbitMQ/).
+
+---
 
 
+## 📦 Installation
 
-## Getting started
-Fisdane.RabbitMQ is installed from NuGet.
+Install via NuGet:
 
-```
+```bash
 dotnet add package Fisdane.RabbitMQ
 ```
 
+---
 
 
-## Getting help
+## ✅ Build Status
 
-## Contributing
+| Branch | Status |
+|--------|--------|
+| `master` | [![Fisdane.RabbitMQ](https://github.com/fisdane/Fisdane.RabbitMQ/actions/workflows/build.yml/badge.svg)](https://github.com/fisdane/Fisdane.RabbitMQ/actions/workflows/build.yml) |
+
+---
+
+## 🙋 Getting Help
+
+For questions, bug reports, or feature requests, feel free to [open an issue](https://github.com/fisdane/Fisdane.RabbitMQ/issues).
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! Please see the [contributing guidelines](CONTRIBUTING.md) for more details.
+
+---
+
+<!-- ## 📄 License
+
+This project is licensed under the [MIT License](LICENSE). -->
+<!-- --- -->
+
+## 💬 Support
+
+If you find this project helpful, consider giving it a ⭐ on GitHub or sharing it with others.
+
+## Status
+ _in_progress_
