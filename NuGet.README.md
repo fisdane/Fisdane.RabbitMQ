@@ -18,6 +18,8 @@
 
 Get started by [reading the full documentation](https://fisdane.github.io/Fisdane.RabbitMQ/).
 
+You can also find a sample project [here](https://github.com/fisdane/Fisdane.RabbitMQ.Sample).
+
 ---
 
 

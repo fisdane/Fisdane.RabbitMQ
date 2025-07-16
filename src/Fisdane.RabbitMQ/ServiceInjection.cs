@@ -31,7 +31,8 @@ public static class ServiceInjection
                         );
                     });
                 })
-                .AddSingleton<ISendMessage, SendMessage>();
+                .AddScoped<ISendMessage, SendMessage>()
+                .AddScoped<IPublishEvent, PublishEvent>();
     }
 
     public static IServiceCollection RegisterConsumers(this IServiceCollection services, IConfiguration configuration, ConsumerMappingDelegate consumerMapping)
